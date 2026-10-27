@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Hoang Viet Quang | Java Backend & Full-Stack Developer</title>
+    <meta name="title" content="Hoang Viet Quang | Java Backend & Full-Stack Developer" />
+    <meta name="description" content="Portfolio website of Hoang Viet Quang, a final-year Software Engineering student specialized in Java, Spring Boot, SQL, and React. Looking for Intern and Fresher roles." />
+    <meta name="author" content="Hoang Viet Quang" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hoangvietquang.vercel.app/" />
+    <meta property="og:title" content="Hoang Viet Quang | Java Backend & Full-Stack Developer" />
+    <meta property="og:description" content="Portfolio website of Hoang Viet Quang, a final-year Software Engineering student specialized in Java, Spring Boot, SQL, and React. Looking for Intern and Fresher roles." />
+    <meta property="og:image" content="https://hoangvietquang.vercel.app/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://hoangvietquang.vercel.app/" />
+    <meta property="twitter:title" content="Hoang Viet Quang | Java Backend & Full-Stack Developer" />
+    <meta property="twitter:description" content="Portfolio website of Hoang Viet Quang, a final-year Software Engineering student specialized in Java, Spring Boot, SQL, and React. Looking for Intern and Fresher roles." />
+    <meta property="twitter:image" content="https://hoangvietquang.vercel.app/og-image.png" />
+
+    <!-- Instant Theme Initializer (Prevents FOUC) -->
+    <script>
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
