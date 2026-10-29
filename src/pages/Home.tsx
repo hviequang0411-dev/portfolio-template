@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '../components/Button';
+import { ResumeModal } from '../components/ResumeModal';
 
 // Local counter component that animates up to target
 const AnimatedNumber: React.FC<{ value: number; suffix?: string; colorClass?: string }> = ({ 
@@ -60,25 +61,10 @@ const AnimatedNumber: React.FC<{ value: number; suffix?: string; colorClass?: st
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const handleDownloadCV = () => {
-    const cvText = `
-HOANG VIET QUANG
-Email: quang.hv.work@gmail.com
-Phone: +84 987 654 321
-Title: Java Backend / Full-Stack Developer
-Education: Final-year Software Engineering student
-Core Tech: Java, Spring Boot, Microservices, Outbox Pattern, Docker, React, TypeScript
-Projects: OPCBS Hospital Booking Microservices, Interview Management System
-    `;
-    const blob = new Blob([cvText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'HoangVietQuang_CV.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    setIsResumeOpen(true);
   };
 
   const techStack = [
@@ -213,7 +199,7 @@ Projects: OPCBS Hospital Booking Microservices, Interview Management System
                 icon={<Download className="h-4 w-4" />} 
                 onClick={handleDownloadCV}
               >
-                Download Resume
+                View & Print CV
               </Button>
             </div>
           </motion.div>
@@ -781,11 +767,17 @@ Projects: OPCBS Hospital Booking Microservices, Interview Management System
               icon={<Download className="h-4 w-4" />}
               onClick={handleDownloadCV}
             >
-              Download Resume
+              View & Download CV
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Interactive Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
     </div>
   );
 };

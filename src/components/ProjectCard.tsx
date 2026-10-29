@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code2, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Code2, CheckCircle2, Workflow } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import type { Project } from '../types';
 
 interface ProjectCardProps {
   project: Project;
+  onOpenDetails?: (project: Project) => void;
 }
 
 
@@ -44,7 +45,7 @@ const getTechTagClass = (tech: string) => {
   return 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25';
 };
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenDetails }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -136,12 +137,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
 
           {/* Action Links */}
-          <div className="flex gap-3 pt-1">
+          <div className="flex flex-wrap gap-2.5 pt-1">
+            {onOpenDetails && project.architectureDetails && (
+              <button
+                type="button"
+                onClick={() => onOpenDetails(project)}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/25 text-xs font-semibold rounded-xl transition-all duration-200"
+              >
+                <Workflow className="h-3.5 w-3.5" />
+                <span>Architecture Deep Dive</span>
+              </button>
+            )}
+
             <a
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-semibold rounded-xl transition-all duration-300 border border-zinc-200/50 dark:border-zinc-700/50"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-semibold rounded-xl transition-all duration-300 border border-zinc-200/50 dark:border-zinc-700/50"
             >
               <GithubIcon className="h-4 w-4" />
               <span>Source Code</span>
@@ -152,7 +164,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs font-semibold rounded-xl transition-all duration-300 shadow-md shadow-orange-500/20"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs font-semibold rounded-xl transition-all duration-300 shadow-md shadow-orange-500/20"
               >
                 <ExternalLink className="h-4 w-4" />
                 <span>Live Demo</span>
