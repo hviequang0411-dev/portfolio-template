@@ -3,19 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
   Printer, 
-  Download, 
-  Mail, 
-  Phone, 
-  Globe, 
-  Github, 
-  Linkedin, 
   Check, 
-  Copy, 
-  Briefcase, 
-  GraduationCap, 
-  Code, 
-  Award 
+  Copy 
 } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -156,10 +147,10 @@ CERTIFICATIONS
               {/* Links Bar */}
               <div className="flex flex-wrap items-center gap-4 text-xs font-mono pt-1 text-zinc-600 dark:text-zinc-300">
                 <a href="https://github.com/hoangvietquang" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-orange-500">
-                  <Github className="h-3.5 w-3.5" /> github.com/hoangvietquang
+                  <GithubIcon className="h-3.5 w-3.5" /> github.com/hoangvietquang
                 </a>
                 <a href="https://linkedin.com/in/hoangvietquang" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-orange-500">
-                  <Linkedin className="h-3.5 w-3.5" /> linkedin.com/in/hoangvietquang
+                  <LinkedinIcon className="h-3.5 w-3.5" /> linkedin.com/in/hoangvietquang
                 </a>
               </div>
             </header>
